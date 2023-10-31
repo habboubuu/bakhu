@@ -1,0 +1,1364 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
+/*-----------------------------------*\
+ * #style.css
+\*-----------------------------------*/
+
+:root{
+    
+    /**
+    * colors
+    */
+
+    --middle-blue-green: #80c2bd;
+    --sonic-silver: #707070;
+    --eerie-black: #171717;
+    --ocean-green: #64c491;
+    --candy-pink: #de636b;
+    --cultured: #f5f5f5;
+    --white: #ffffff;
+    --black: #000000;
+
+    /**
+    * typography
+    */
+
+    --ff-jost: "Jost", sans-serif;
+
+    --fs-1: 2.5rem;
+    --fs-2: 1.75rem;
+    --fs-3: 1.625rem;
+    --fs-4: 1.5rem;
+    --fs-5: 1.375rem;
+    --fs-6: 1.25rem;
+    --fs-7: 1.125rem;
+    --fs-8: 0.938rem;
+    --fs-9: 0.875rem;
+    --fs-10: 0.813rem;
+
+    --fw-500: 500;
+    --fw-600: 600;
+
+    /**
+    * transition
+    */
+    --transition-1: 0.25s ease;
+    --transition-2: 0.75s ease;
+    --cubic-out: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+    --cubic-in: cubic-bezier(0.33, 0.85, 0.56, 1.02);
+
+    /**
+    * spacing
+    */
+    
+    --section-padding: 60px;
+}
+
+/*-----------------------------------*\
+ * #RESET
+\*-----------------------------------*/
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;  /* 2izalat no9at */
+}
+
+a{
+    text-decoration: none;
+}
+
+a,
+img,
+span,
+input,
+button,
+ion-icon{
+    display: block;
+}
+
+input,
+button{
+    background: none; /* kan7aydu lkhlfiya katwli bayda */
+    border: none; /* kay7ayd 2itar */
+    font: inherit;  /* y3ni input w button ghadi yakhdu nfs font l3and aba2 dyalhum */
+}
+
+button{
+    text-align: left;
+    cursor: pointer;
+}
+
+input{
+    width: 100%;
+    outline-color: var(--middle-blue-green); /* kaylawn 2itar input */
+}
+
+img{
+    height: auto;
+}
+
+ion-icon{
+    pointer-events: none;
+}
+
+html{
+    font-family: var(--ff-jost);
+    color: var(--sonic-silver); /* 2ay ktba tktbat 3adya katla3 silver */
+    scroll-behavior: smooth;
+}
+
+body{
+    background: var(--white);
+    padding-block: 70px; /* b7al padding top masafa mn fu9  w masafa mn ta7t f akhir */
+    /*height: 300vh; /*tajribat header */
+}
+
+/*-----------------------------------*\
+ * #RESET
+\*-----------------------------------*/
+
+.container{
+    padding-inline: 15px;
+}
+
+a,
+button{
+    transition: var(--transition-1);
+}
+
+h3  a{
+    color: inherit;
+}
+
+.h1,
+.h2,
+.h3,
+.h4{
+    color: var(--eerie-black);
+    font-weight: var(--fw-600);
+}
+
+.h1{
+    font-size: var(--fs-1);
+    line-height: 1;
+}
+
+.h2{font-size: var(--fs-2);}
+.h3{font-size: var(--fs-6);}
+.h4{
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+}
+
+
+.btn{
+    background: var(--eerie-black);
+    color: var(--white);
+    font-weight: var(--fw-600);
+    height: 60px; /* tul dyal background  */
+    padding-inline: 50px; /* space dakhili fstar kaysawb dicore button */
+    border: 1px solid var(--eerie-black); /* dyal 2itar button */
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary:is(:hover, :focus){
+    background: var(--white);
+    color: var(--eerie-black);
+    border-color: var(--eerie-black);
+}
+
+.btn-secondary{
+    height: 50px; /* bach button secondary takhud height bh7dha machi dyal default (.btn) */
+    background: var(--white);
+    color: var(--eerie-black);
+    border-color: var(--white); /* katkhabi color dyal border l7atinah f default */
+}
+
+.btn-secondary:is(:hover, :focus){
+    background: var(--eerie-black);
+    color: var(--white);
+    border-color: var(--eerie-black);
+}
+
+.btn-outline{
+    height: 50px; /* bach button secondary takhud height bh7dha machi dyal default (.btn) */
+    background: var(--white);
+    color: var(--eerie-black);
+    border-color: var(--eerie-black);
+    padding-inline: 40px; /* kan9su mn space dakhiliya li knt f default (.btn)*/
+} 
+
+.btn-outline:is(:hover, :focus){
+    background: var(--eerie-black);
+    color: var(--white);
+    border-color: var(--eerie-black);
+}
+
+.section{
+    padding-block: var(--section-padding);
+}
+
+.w-100{
+    width: 100%; /* kay7ayd scrool dyal jnab */
+}
+
+.section-title{ /* f product newsletter blog */
+    text-align: center;
+    margin-bottom: 30px; /* space khariji mn lta7t */
+}
+
+/*-----------------------------------*\
+ * #HEADER
+\*-----------------------------------*/
+
+.header-search/*,
+.overlay/*,
+/*.header-actions,*/
+/*.navbar*/{
+    display: none;
+}
+
+.header{
+    position: absolute;
+    top: 0; /* kantal3u header */
+    left: 0;
+    background: var(--white);
+    width: 100%; /* 3ard dyal header */
+    padding-block: 20px; /* space mn fu9 w ta7t lheader */
+    z-index: 4;
+    transition: var(--transition-1)
+}
+
+.header.active{
+    position: fixed;
+    box-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.1);  /* kay3ti shadow t7t header */
+}
+
+.header .container{ /* hna kandir flex bach njib menu bars f saf m3a logo w space between bach nab3duhm */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-open-btn{
+    display: flex;
+    flex-direction: column; /* colum bach tji whda fu9 whda */
+    gap: 4px;  /* taba3ud */
+    padding: 8px;   /* masafa dakhilya katk7zha mn hda jnab */
+}
+
+.nav-open-btn span{  /* 7ta kan3tiwh width w height 3ad bach kayban */
+    width: 23px;  /* 3ard bars */
+    height: 2px;  /* tul sumk bars */
+    background: var(--black);
+    transition: var(--transition-1);
+}
+
+.header-actions{
+    background: var(--white);
+    position: fixed;
+    bottom: 0; /* kathabthum lta7t */
+    left: 0;
+    width: 100%;
+    display: flex; /* kay7thum f star */
+    justify-content: space-evenly;  /* kat9asm msa7a  btasawi wmakyb9ach faragh */
+    align-items: center;
+    gap: 5px; /* taba3ud */
+    padding-block: 16px 10px; /* masafa mn fu9 wta7t */
+    box-shadow: 0 -2px 20px hsla(0, 0%, 0%, 0.15); /* kay3ti shadow fu9 header action */
+    z-index: 1;
+}
+
+.header-action-btn { /* ta3dilat */
+    position: relative;
+    width: 50px;
+    text-align: center;
+}
+
+.header-action-btn ion-icon{
+    margin-inline: auto;  /* katjib icon wst */
+    font-size: 22px;
+    margin-bottom: 3px;
+}
+
+.header-action-label{
+    color: var(--sonic-silver);
+    font-size: var(--fs-10);
+    transition: var(--transition-1);
+}
+
+.header-action-btn:is(:hover, :focus) .header-action-label{
+    color: var(--eerie-black);
+}
+
+.header-action-btn .btn-badge{
+    position: absolute;
+    top: -5px; /* katala3 ra9m fu9 */
+    right: 0;  /* l jiht limen */
+    background: var(--eerie-black);
+    width: 20px; /* width dyal background */
+    height: 20px;  /* height dyal background */
+    display: grid;
+    place-items: center;  /* ra9m wast */
+    line-height: 0;
+    font-size: 13px;
+    color: var(--white);
+    border-radius: 50%; /* chakel da2iri */
+}
+
+.header-action-btn .btn-badge.green{
+    background: var(--middle-blue-green); /* kan3tiw color l badge dyal cart */
+}
+
+.navbar{
+    background: var(--white);
+    position: fixed;
+    top: 0; /* lfu9 */
+    right: -300px;
+    max-width: 300px; /* kan7du a9sa 3ard */
+    width: 100%; /* hna kankhaliwh yst3ml width 300px */
+    height: 100%; /* kaykhud height 100% */
+    padding: 30px 25px; /* kay7ayd 3anaser mn jnab */
+    z-index: 3;  /* katkhalih yghati juz2 mn header lt7tani */ 
+    visibility: hidden;
+    transition: 0.25s var(--cubic-out);
+}
+
+.navbar.active{
+    visibility: visible; /* idhar navbar */
+    transform: translateX(-300px);/* kaykhus db n7ut f right -300px */ /* effect */
+    transition: 0.5s var(--cubic-in);
+
+}
+
+.navbar-top{
+    display: flex; /* hna kan7utu icon close w img f line */
+    justify-content: space-between;  /* kanba3du byanthum */
+    align-items: center;
+    margin-bottom: 60px;  /* space mn ta7t bach tba3d navbar list */
+}
+
+.nav-close-btn ion-icon{
+    font-size: 23px; 
+}
+
+.navbar-link{
+    padding-block: 10px; /* msafa mn fu9 wta7t byn 3anaser */
+    color: var(--eerie-black);
+}
+
+.navbar-list li:not(:last-child){ /* hna kandiru slid lkayn ta7t kul 3nwan */
+    border-bottom: 1px solid var(--cultured);
+}
+
+.overlay{
+    position: fixed;
+    inset: 0; /* !! */ /* katkhadmu */
+    background: var(--black);
+    opacity: 0; /* mostawa chafafiya */
+    pointer-events: none; /* !! */  /* kaykhali effect dyal bars */
+    transition: var(--transition-1);
+    z-index: 2;
+}
+
+.overlay.active{
+    opacity: 0.7; /* mostawa chafafiya */
+    pointer-events: all; /* /* makayb9ach ymkn ytla3 lpointer f jiha dyal overlay */
+}
+
+/*-----------------------------------*\
+ * #HERO
+\*-----------------------------------*/
+
+.hero{
+    background-repeat: no-repeat; /* backgound mat3awdtch */
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    min-height: 120vh; /* kaytala3 tul dyal background */
+    padding-block: var(--section-padding);  /* space mn ta7t w fu9 */
+    display: flex;
+    align-items: center; /* kayjib l3anaser lwast */
+}
+
+.hero .container{
+    width: 100%;
+}
+
+.hero-subtitle{
+    color: var(--eerie-black);
+    font-size: var(--fs-4);
+    font-weight: var(--fw-600);
+    margin-bottom: 20px; /* space mn ta7t p */
+}
+
+.hero-title{
+    margin-bottom: 35px;  /* space mn ta7t l title */
+    max-width: 12ch; /* 9yas dyal width kaykhli title ytktab f juj stur */
+}
+
+/*-----------------------------------*\
+ * #SERVICES
+\*-----------------------------------*/
+.service{
+    padding-block: 45px; /* space dakhiliya mn ta7t w fu9 */
+}
+
+.service-list{
+    display: flex; /* l3anaser f star */
+    flex-direction: column;
+    flex-wrap: wrap;/* 2x2 */ /* l3anaser ka3udu yltafu f7alt kbrat chacha wla sghart */
+    justify-content: center; /* wstana */
+    align-items: center;
+    gap: 40px; /* taba3ud */
+}
+
+.service-item{
+    max-width: 235px;
+    width: 100%; /* t7d7d 3ard wkatsawb icon tani f blastha */
+    display: flex; /* 3naser f saf */
+    justify-content: flex-start; /* makan bdya */
+    align-items: center;  /* 3naser wst */
+    gap: 20px; /* taba3ud */
+}
+
+.service-item-icon{
+    width: 45px;
+}
+
+.service-item-icon img{
+    margin-inline: auto; /* kay3ti img space khariji auto */
+}
+
+.service-item-title{
+    color: var(--eerie-black);
+    font-size: var(--fs-7);
+    font-weight: var(--fw-600);
+}
+
+/*-----------------------------------*\
+ * #CATEGORY
+\*-----------------------------------*/
+.category{
+    padding-top: 0; /* hna kanlghiw space mn lfu9 ldayrinu f section vriable line 204 */
+}
+
+.category-list{
+    display: flex; /* kayjib category f row */
+    flex-wrap: wrap; /* kayrud l3anaser 9ablin lil 2ltifaf */
+    justify-content: center; /* kaywstan l3anaser */
+    align-items: center;
+    gap: 30px;
+}
+
+.category-item{
+    width: 100%; /* kay7ut kul item f star bohdu  */
+    position: relative;
+}
+
+.category-banner{
+    background: var(--cultured);
+    aspect-ratio: 2 / 2 ; /* !! */ /* kat7akm fch7al ghadi yban mn swra */
+    overflow: hidden;
+}
+
+.category-banner img{
+    height: 100%; /* katbayn tul swra kamla */
+    object-fit: cover;  /* izalt tachaweh */
+    transition: var(--transition-2);
+}
+
+.category-item:hover .category-banner img{
+    transform: scale(1.05); /* effect */
+}
+
+.category-item .btn{
+    position: absolute;
+    bottom: 30px; /* katl3 button fu9 suwra */
+    left: 50%; /* kadi button jnab lakher */
+    transform: translateX(-50%); /* katrud button l wast */
+    width: max-content; /* 3ard button 9d 3ard ktba */
+    padding-inline: 30px; /* kan9su mn padding default (btn) */
+}
+
+/*-----------------------------------*\
+ * #PRODUCTS
+\*-----------------------------------*/
+.filter-list{
+    display: flex; /* f row */
+    flex-wrap: wrap; /* 3naser 9abla iltifaf */
+    justify-content: center; /* 3naser wast */
+    align-items: center;
+    gap: 20px; /* taba3ud */
+    margin-bottom: 30px;
+}
+
+.filter-btn{
+    color: inherit;
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+}
+
+.filter-btn.active{
+    color: var(--eerie-black);
+}
+
+.product-list{
+    display: flex; /* product f row */
+    flex-wrap: wrap; /* l3anaser t9dar teltaf */
+    justify-content: center; /* 3naser f wst star */
+    gap: 50px 25px;
+    margin-bottom: 60px; /* space khariji mn ta7t */
+}
+
+
+
+.product-card .card-banner{
+    position: relative;
+    margin-bottom: 20px; /* space khariji mn ta7t */
+}
+
+.product-card .card-banner img{ /* ta7did 9yass wahd lkul categorys */
+    width: 100%;
+    height: 270px;
+}
+
+.product-card .card-badge{ /* dicore dyal takhfid */
+    background: var(--eerie-black);
+    color: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: var(--fs-9);
+    font-weight: var(--fw-500);
+    padding: 3px 10px; /* kandiru padding bach chiffer yban ! */
+}
+
+.product-card .card-badge.red{ /* color dyal romise */
+    background: var(--candy-pink);
+}
+
+.product-card .card-badge.green{
+    background: var(--ocean-green);
+}
+
+.product-card .card-actions{
+    display: flex;  /* kyjib l3naser f star */
+    height: 45px;  /* katba3d 3naser mn hda swra */
+}
+
+.product-card .card-action-btn{
+    border: 1px solid var(--cultured); /* kan2tru l3anaser */
+    width: 45px;
+    display: flex; /* kay3awd ysawb l3anaser mzyan f saf */
+    justify-content: center; /* kaywstn l3anaser fstar bnsba l div */
+    align-items: center; /* kaywstan l3anaser bnsba lmarkz div */
+    gap: 8px; /* taba3ud */
+    background: var(--white);
+    color: var(--eerie-black);
+}
+
+/* hover dyal border */
+.product-card .card-action-btn:is(:hover, :focus){
+    border-color: var(--eerie-black);
+}
+
+.product-card .cart-btn{
+    flex-grow: 1; /* kaykbar 3la9ud mu7tawa lfuh */
+    background: var(--eerie-black);
+    color: var(--white);
+    border-color: var(--eerie-black);
+}
+
+/* hover dyal background (add to cart) */
+.product-card .cart-btn:is(:hover, :focus){
+    background: var(--white);
+    color: var(--eerie-black);
+}
+
+.product-card .card-action-btn ion-icon{ /* nkbru icon */
+    font-size: 20px;
+}
+
+.product-card .card-title{
+    margin-bottom: 5px; /* space mn ta7t title */
+}
+
+.product-card .card-price{
+    color: var(--eerie-black);
+    font-size: var(--fs-8);
+    font-weight: var(--fw-500);
+}
+
+.product-card .card-price data:not(:first-child){/* kandiru lprice akhur dicore dyal tchtab */
+    color: var(--sonic-silver);
+    margin-left: 5px;/* masafa kharijiya mn liser */
+    text-decoration: line-through; /* dicore dyal tchtab */
+}
+
+.product .btn{
+    margin-inline: auto; /* kayjib button l wast */
+}
+
+/*-----------------------------------*\
+ * #BLOG
+\*-----------------------------------*/
+.blog .section-title{
+    margin-bottom: 40px; /* space ta7t title */
+}
+
+.blog-list{
+    display: flex; /* card f row */
+    flex-wrap: wrap;
+    justify-content: center; /* 3anaser fwst star */
+    align-items: flex-start;
+    gap: 30px; /* taba3ud bayn kul card */
+}
+
+.blog-card .card-banner{
+    background: var(--cultured);
+    aspect-ratio: 2 / 1.37;
+    overflow: hidden;
+    margin-bottom: 25px; /* space khariji mn ta7t swra */
+}
+
+/* ta3dilat b7al dyal category bach ndiru zoom f cursor image */
+
+.blog-card .card-banner img{
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-2);
+}
+
+.blog-card:hover .card-banner img{
+    transform: scale(1.05);
+}
+
+.blog-card .card-meta-list{
+    display: flex; /* 3naser f saf */
+    justify-content: center; /* kaywastn 3anaser f star */
+    align-items: center;
+    gap: 25px; /* taba3ud */
+    margin-bottom: 10px; /* masafa mn ta7t l 3anaser */
+}
+
+.blog-card .card-meta-item{
+    display: flex; /* katjib l3anaser f saf */
+    align-items: center;
+    gap: 10px;  /* taba3ud */
+}
+
+.blog-card .card-meta-item ion-icon{
+    font-size: 17px;
+    --ionicon-strock-width: 30px /* somk dyal icon */
+}
+
+.blog-card .card-meta-link{
+    color: inherit; /* kadir lawn baht */
+    font-size: var(--fs-9);
+    font-weight: var(--fw-500);
+    text-transform: uppercase; /* 7ruf kbar */
+}
+
+.blog-card .card-meta-link:is(:hover, :focus){
+    color: var(--eerie-black);
+}
+
+.blog-card .card-title{
+    line-height: 1.4; /* bch7al ghadi yba3du 3la 3nwan mn fu9 w ta7t */
+    text-align: center; /* kayjib 3nwan l wast ( effect kayban f ecron kbira ) */
+
+}
+
+/*-----------------------------------*\
+ * #NEWSLATTER
+\*-----------------------------------*/
+.newsletter{
+    padding-bottom: 120px; /* space dakhili mn ta7t section */
+}
+
+/* kandiru background w kn7tu m3aha newsletter.png f html wkn3dlu dakchi !  */
+.newsletter-card{
+    background-color: var(--cultured);
+    background-repeat: no-repeat; /* !! */
+    background-size: cover; /* kaytla3 image.png */
+    padding: 80px 15px; /* kantal3u background mzn */
+    text-align: center; /* kaydi ga3 lktba lwast */
+}
+
+.newsletter-card .card-title{
+    color: var(--eerie-black);
+    font-size: var(--fs-3);
+    font-weight: var(--fw-500);
+    line-height: 1.2; /* taba3ud dyal star */
+    margin-bottom: 30px; /* space khariji mn ta7t title */
+}
+
+.newsletter-card .card-text{
+    margin-bottom: 30px; /* space khariji mn ta7t */
+}
+
+.newsletter-card .input-wrapper{
+    position: relative;
+    margin-bottom: 20px; /* space khariji mn ta7t */
+}
+
+.newsletter-card .input-field{
+    background: var(--white);
+    height: 60px; /* twl */
+    padding-inline: 50px 20px;
+    border-radius: 6px;
+}
+
+.newsletter-card .input-wrapper ion-icon{
+    font-size: 18px;
+    /* kandplaciw icon */
+    position: absolute;
+    top: 50%;  /* f7alt mabghinax transform top: ~35% */
+    left: 25px;
+    transform: translateY(-50%);  /* kanjibu wst input 9d 9d */
+}
+
+.newsletter-card .btn{
+    gap: 10px;  /* kanba3du sahm mn hda subscribe */
+}
+
+/*-----------------------------------*\
+ * #FOOTER
+\*-----------------------------------*/
+.footer-top{
+    background: var(--cultured);
+    padding-block: var(--section-padding); /* space mn fu9 w ta7t l div dyal footer top */
+}
+
+.footer-top .container{
+    display: flex; /* 3naser f star */
+    flex-wrap: wrap; /* 9abiliya lil iltifaf */
+    justify-content: space-between; /* masafa ma byn 3naser (footer list) */
+    gap: 40px; /* taba3ud */
+}
+
+.footer .logo{
+    margin-bottom: 20px; /* space mn lta7t l logo */
+}
+
+.footer .logo img{
+    width: 160px;
+}
+
+.footer-text{
+    line-height: 1.6;
+    margin-bottom: 20px; /* space khariji mn lta7t paragraph */
+}
+
+.social-list{
+    display: flex; /* social media f saf */
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link{
+    color: var(--eerie-black);
+    font-size: 18px;
+    width: 35px; /* 3ard likhda link  kay3ti space byn icons*/
+    height: 35px; /* height likhda link */
+    border: 1px solid var(--sonic-silver); /* kan7it 3la media b border */
+    display: grid;
+    place-items: center;  /* 3naser tji wst border */
+    border-radius: 50%;
+}
+
+/* hover dyal social media */
+.social-link:is(:hover, :focus){
+    background: var(--eerie-black);
+    color: var(--white);
+    border-color: var(--eerie-black);
+}
+
+.footer-list{
+    width: 100%; /* footer list kaykhud width 100% */
+}
+
+.footer-list-title{
+    color: var(--eerie-black);
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    margin-bottom: 15px; /* space mn ta7t title dyal list */
+}
+
+.footer-link{
+    position: relative;
+    color: inherit;
+    padding-block: 5px; /* space mn ta7t w fu9 lkul 3nser */
+}
+
+.footer-link:is(:hover, :focus){
+    color: var(--eerie-black);
+    transform: translateX(15px); /* ta7ruk 3la x */
+}
+
+/* bach kandiru churta f hover -   !!!! */
+.footer-link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%) scale(var(--scale, 0));
+    transform-origin: right;
+    background: var(--sonic-silver);
+    width: 10px;
+    height: 2px;
+    transition: var(--transition-1);
+}
+
+.footer-link:is(:hover, :focus)::before{
+    --scale: 1;
+}
+
+.footer-bottom{
+    padding-block: 20px; /* space mn ta7t w fu9 l footer akhir */
+}
+
+.footer-bottom a{
+    color: inherit; /* ga3 links ykhud color rmadi */
+}
+
+.copyright{
+    margin-bottom: 15px; /* space mn ta7t l div dyal copyright */
+    text-align: center;  /* kayjib ktba wst */
+}
+
+.copyright a{
+    display: inline-block; /* kytl3u 3naser f star */
+    color: var(--eerie-black);
+    font-weight: var(--fw-600);
+}
+
+.footer-bottom-list{
+    display: flex; /* 3naser f saf */
+    flex-wrap: wrap; /* 9abiliya lil iltifaf */
+    justify-content: center; /* 3naser wst */
+    align-items: center;
+    gap: 5px 15px; /* taba3ud */
+    margin-bottom: 15px; /* space khariji mn ta7t */
+}
+
+/* hover dyal footer bottom list */
+.footer-bottom-link:is(:hover, :focus){
+    color: var(--eerie-black);
+}
+
+.payment{
+    display: flex; /* ytl3y f saf wahd */
+    flex-wrap: wrap; /* 9abil lil iltifaf */
+    justify-content: center; /* wst  star */
+    align-items: center;
+    gap: 15px; /* taba3ud */
+}
+
+
+
+/*-----------------------------------*\
+ * #MEDIA QUARIES
+\*-----------------------------------*/
+
+
+/**
+* responsive for larger than 300px screen
+*/
+@media (min-width: 300px) {
+
+    /**
+    * PRODUCT
+    */
+
+    .product-card .card-banner img{ /* ta7did 9yass wahd lkul categorys */
+        width: 200px;
+        /*height: 270px;*/
+    }
+
+
+}
+
+
+
+
+
+
+
+
+/**
+* responsive for larger than 480px screen
+*/
+
+@media (min-width: 480px){
+
+    /**
+    * CUSTOM PROPERTY
+    */
+
+   :root{
+
+    /**
+    * typography
+    */
+
+    --fs-1: 3rem;
+    --fs-2: 2rem;
+   }
+
+
+    /**
+    * CATEGORY
+    */
+    .category-list > li {
+        width: calc(50% - 15px); /* kaytl3u category 2x2x2 / ila bdlna ra9m tani(15px) n9dru nhaslu 3la chakel akhaer*/
+    }
+
+
+    /**
+    * PRODUCT
+    */
+
+    .product-list > li{
+        width: calc(50% - 12.5px);
+    }
+
+
+    /**
+    * FOOTER
+    */
+    
+    .footer-brand{
+        width: 100%;
+    }
+
+    .footer-text{
+        max-width: 470px;
+    }
+
+    .footer-list{
+        width: calc(50% - 20px);
+    }
+
+    
+   
+
+    
+}
+
+
+
+/**
+* responsive for larger than 580px screen
+*/
+
+@media (min-width: 580px){
+    
+    /**
+    * CUSTOM PROPERTY
+    */
+
+   :root{
+
+    /**
+    * typography
+    */
+
+    --fs-1: 3.75rem;
+    --fs-2: 2.375rem;
+    --fs-3: 2.25rem;
+   }
+
+   /**
+   * REUSED STYLE
+   */
+
+   .container{
+    max-width: 550px;
+    margin-inline: auto;
+   }
+
+   /**
+   * SERVICES
+   */
+
+   .service-list{
+    flex-direction: row;
+    
+}
+
+
+}
+
+
+
+
+
+/**
+* responsive for larger than 768px screen
+*/
+
+@media (min-width: 768px){
+    
+    /**
+    * REUSED STYLE
+    */
+
+    .container{
+        max-width: 768px;
+    }
+
+    .hero{
+        background-position: center;
+        min-height: 800px;
+    }
+
+    /**
+    * BLOG
+    */
+
+    .blog-list > li {
+        width: calc(50% - 15px);
+    }
+
+    /**
+    *newsletter
+    */
+
+    .newsletter-card > * { /* kansaghru paragraph w input  w button */
+        max-width: 480px;
+        margin-inline: auto;
+    }
+
+    .newsletter-card .card-form{
+        position: relative;
+    }
+
+    .newsletter-card .input-wrapper{ /* izalt masafa byn input w button */
+        margin-bottom: 0;
+    }
+
+    .newsletter-card .btn{ /* kanjibu button f input */
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: max-content;/* kayta3 l9d dyal button 3adi */
+        padding-inline: 35px; /* space dakhili 3la star */
+        border-radius: 0 6px 6px 0;
+    }
+
+
+    /**
+    * FOOTER
+    */
+
+    .footer-list{width: calc(33.33% - 26.66px);} /* katjib footer list b tlata */
+
+    .copyright,
+    .footer-bottom-list{
+        margin-bottom: 0;
+    }
+
+    .footer-bottom .container{
+        display: flex; /* 3naser f saf */
+        flex-wrap: wrap; /* 3anaser 9abla iltifaf */
+        justify-content: center; /* 3anaser fwast bnsba x */
+        align-items: center;
+        gap: 25px 50px;
+    }
+
+
+}
+
+
+
+
+
+/**
+* responsive for larger than 992px screen
+*/
+@media (min-width: 992px){
+
+    /**
+    * CUSTOM PROPERTY
+    */
+
+   :root{
+
+    /**
+    * typography
+    */
+
+    --fs-1: 5rem;
+
+   }
+
+   /**
+   * RESET
+   */
+
+   body{
+    padding-block: 0;  /* kat7ayd lina whd tachwh f ach kandiru position relative f header */
+   }
+
+   /**
+   * REUSED STYLE
+   */
+
+   .container{
+    max-width: 950px;
+   }
+
+   /**
+   * HEADER
+   */
+
+   .header{
+    position: relative;
+    padding-block: 15px; /* kay3tina space bach nktbu fih  */
+    border-bottom: 1px solid hsla(0, 0%, 0%, 0.1); /* itar aswad t7t logo*/
+    margin-bottom: 67px; /* space khariji mn ta7t */
+   }
+
+   .header.active{
+    position: relative; /* kandiru relative f blasst fixed bach nhitu fixed f navbar */
+    box-shadow: none; /* kan7ydu shadow mn hna bach n7tuh t7t navbar */
+   }
+
+   .header .container{
+    display: grid; /* kayjib menu ta7t logo */
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+   }
+
+   .header-search{
+    display: block; /* kaybyn input search */
+    position: relative;
+    width: max-content;
+   }
+
+   .header-search .input-field{
+    border: 1px solid #0000001a;
+    width: 280px;
+    padding: 12px 38px;
+    border-radius: 6px;
+    transition: var(--transition-1);
+   }
+
+   .header-search .input-field:focus {
+    outline: 1px solid var(--eerie-black);
+   }
+
+   .header-search .search-btn{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%); /* ktsawy search icon m3a y input */
+    font-size: 20px;
+   }
+
+   .header-search .search-btn ion-icon{
+    --ionicon-stroke-width: 30px; /* somk icon */
+   }
+
+
+   .header .logo{
+    margin-inline: auto; /* kayjib logo lwst bnsba x */
+   }
+
+
+   /* 2ikhfa2 3anaser */
+   .nav-open-btn,
+   .header-action-btn:nth-child(2),
+   .navbar-top,
+   .overlay{display: none;}
+
+   .header-actions{
+    all: unset; /* kayta3 icons header actions lfu9 */
+    display: flex; /* kayjibhum f saf */
+    justify-content: flex-end; /* ybdaw mn lkher */
+    gap: 15px;
+   }
+
+   .navbar{
+    all: unset; /* kaytal3 navbar */
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100%;
+    background: var(--white);
+   }
+
+   header.active .navbar{
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 20px hsla(0, 0%, 0%, 0.1); /* shadow dyal navbar */
+   }
+
+   .navbar-list{
+    display: flex; /* list f saf */
+    justify-content: center; /* l3anaser f wst x */
+    align-items: center;
+    gap: 40px; /* taba3ud */
+   }
+
+   .navbar-list > :not(li:last-child) { /* izalt border bottom */
+    border-bottom: none;
+   }
+
+   .navbar-link{
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+    padding-block: 20px; /* kysab lwstana f y */
+   }
+
+   .navbar-link:is(:hover, :focus){
+    color: var(--middle-blue-green);
+   }
+
+
+
+   /**
+   * CATEGORY
+   */
+
+
+    /* mn ghir first child w nth-child(2) */
+   .category-list > li:not(:first-child, :nth-child(2)) {
+    width: calc(25% - 22.5px);
+   }
+
+
+   /**
+   * PRODUCT
+   */
+
+   .product-list > li { width: calc(30.33% - 16.66px);}
+
+   .product-card .card-banner img{ /* ta7did 9yass wahd lkul categorys */
+    height: 320px;
+   }
+
+
+   /* kantl3y icon fu9 swra */
+   .product-card .card-actions{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    transform: translateY(100px);
+    visibility: hidden; /* 2ikhfa2 */
+    transition: var(--transition-1);
+   }
+
+   /* kaykhabi mu7tawa li kharj mn div */
+   .product-card .card-banner {overflow: hidden;}
+
+
+   .product-card .card-banner:hover .card-actions{
+    visibility: visible;
+    transform: translateY(0); /* kan3tiwh 0 7it blasa ghayban fiha mzyan / f7at 3tinah chi value tji t7t tswira maghaytla3ch 7it derna overflow=hidden */
+   }
+
+   .product-card .card-action-btn:first-child {
+    border-radius: 6px 0 0 6px;
+   }
+
+   .product-card .card-action-btn:last-child {
+    border-radius: 0 6px 6px 0;
+   }
+
+
+   /**
+   * BLOG
+   */
+
+   /* blogs f star wahd */
+   .blog-list > li {width: calc(33.33% - 20px);}
+
+
+   /**
+   * NEWSLETTER
+   */
+   
+   /* kanzidu f width dyal newsletter */
+   .newsletter-card .card-form {
+    max-width: 650px;
+   }
+
+}
+
+
+
+
+
+
+/**
+* responsive for larger than 1200px screen
+*/
+@media (min-width: 1200px){
+    /**
+    * CUSTOM PROPERTY
+    */
+
+   :root{
+
+    /**
+    * typography
+    */
+
+    --fs-1: 6.25rem;
+
+   }
+
+
+   /**
+   * REUSED STYLE
+   */
+
+   .container {max-width: 1150px;}
+
+
+   /**
+   * HEADER
+   */
+
+
+   /* kanzidu f3ard input */
+   .header-search .input-field {width: 350px;}
+
+
+   /**
+   * PRODUCT
+   */
+
+
+   /* kanzidu f 3ard kayusu 4 product f saf */
+   .product-list > li {width: calc(25% - 18.75px);}
+
+
+   /**
+   * FOOTER
+   */
+
+   .footer-brand{ width: calc(40% - 30px);}
+
+   .footer-text {max-width: 340px;}
+
+   .footer-list {width: calc(20% - 30px);}
+
+   .footer-bottom .container {justify-content: space-between;}
+
+
+
+
+}
